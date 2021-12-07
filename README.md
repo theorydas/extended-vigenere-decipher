@@ -1,8 +1,6 @@
 # extended-vigenere
 
-This simple tool offers a simply python
-tool that handles the Vigenere encryption and decryption that supports the traditional Vigenere table as well as any other custom character table that
-can be created (character or number addition/substraction, or shuffling).
+This simple python tool offers an easy-to-use way to handle Vigenere encryption and decryption and can also support the traditional Vigenere table as well as any other custom character table that can be created (character or number addition/substraction, or shuffling).
 
 ## The Vigenere Puzzle
 
