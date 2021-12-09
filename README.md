@@ -17,6 +17,27 @@ Even though the Vigenere cipher is very simple to understand and use, it is usua
 symbols and because of this there are no easy to find or use tools online that would account for that. Indeed, when I recently required such an
 extended vigenere table, I wasn't able to find a useful tool online and ended up coding these simple functions.
 
+#### Usage
+
+When using custom character tables, one has to specify a list of the desired characters and positions.
+```python
+    characters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
+                  "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
+                  "!", "@", "#", "$", "_"]
+```
+Then, encoding and decoding is simply performed by calling the relevant functions.
+```python
+    hidden_message = "this_is_a_test_message!"
+
+    encoded_message = extended_vigenere.Encode(hidden_message, "secr@tkey", characters)
+```
+
+```python
+    encoded_message = "glke!@#dyrxgepswilfeivw"
+
+    decoded_message = extended_vigenere.Decode(Encoded_Message, "secr@tkey", characters)
+```
+
 ## Requirements
 
-The vigenere mapping uses `numpy` arrays to perform index addition.
+The vigenere mapping uses `numpy` arrays to perform index shifting.

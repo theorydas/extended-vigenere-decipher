@@ -77,6 +77,7 @@ def viginereWord(message: str, key: str, character_list: list, encode: bool = Tr
     # Shift the index using the key and remap to character_list.
     resulting_message_index = message_ +key_ *encode
     resulting_message = findWord(resulting_message_index, character_list)
+    resulting_message = "".join(resulting_message)
     
     return resulting_message
 
