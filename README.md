@@ -17,7 +17,7 @@ Even though the Vigenere cipher is very simple to understand and use, it is usua
 symbols and because of this there are no easy to find or use tools online that would account for that. Indeed, when I recently required such an
 extended vigenere table, I wasn't able to find a useful tool online and ended up coding these simple functions.
 
-#### Usage
+## Usage
 
 When using custom character tables, one has to specify a list of the desired characters and positions.
 ```python
