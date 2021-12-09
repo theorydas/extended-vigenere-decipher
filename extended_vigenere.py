@@ -124,3 +124,33 @@ def Decode(message: str, key: str, character_list: list = defaultCharacters) -> 
     decoded_message = viginereWord(message, key, character_list, encode = False)
     
     return decoded_message
+
+# ===== Command line call
+
+import sys
+import argparse
+
+def main(argv):
+    parser = argparse.ArgumentParser()
+    parser.add_argument("inputFile", help = "Path to the input file used with the cipher.")
+    parser.add_argument("outputFile", help = "Path of the output file.")
+    parser.add_argument("-key", "--key", help = "The key used for encryption.", type = str)
+    parser.add_argument("-encode", "--encode", help = "Wether encoding or decoding is used. Defaults to True/Encoding.", type = str)
+    args = parser.parse_args()
+    
+    shouldEncode =  True if args.encode == "true" else False
+    
+    # Load the message from input path.
+    message = open(args.inputFile).read()
+    key = args.key
+    
+    # Find the ciphered version of the message.
+    ciphered = viginereWord(message = message, key = key, character_list = defaultCharacters, encode = shouldEncode)
+    print(len(args.key), shouldEncode)
+    print(ciphered)
+    
+    # Save new message to output path.
+    open(args.outputFile, "w").write(ciphered)
+    
+if __name__ == "__main__":
+    main(sys.argv[1:])

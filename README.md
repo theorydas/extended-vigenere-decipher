@@ -19,25 +19,36 @@ extended vigenere table, I wasn't able to find a useful tool online and ended up
 
 ## Usage
 
+### Python
 When using custom character tables, one has to specify a list of the desired characters and positions.
 ```python
-    characters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
-                  "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
-                  "!", "@", "#", "$", "_"]
+characters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
+              "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
+              "!", "@", "#", "$", "_"]
 ```
 Then, encoding and decoding is simply performed by calling the relevant functions.
 ```python
-    hidden_message = "this_is_a_test_message!"
+hidden_message = "this_is_a_test_message!"
 
-    encoded_message = extended_vigenere.Encode(hidden_message, "secr@tkey", characters)
+encoded_message = extended_vigenere.Encode(hidden_message, "secr@tkey", characters)
 ```
 
 ```python
-    encoded_message = "glke!@#dyrxgepswilfeivw"
+encoded_message = "glke!@#dyrxgepswilfeivw"
 
-    decoded_message = extended_vigenere.Decode(Encoded_Message, "secr@tkey", characters)
+decoded_message = extended_vigenere.Decode(Encoded_Message, "secr@tkey", characters)
+```
+
+### Command Line
+Similarly to the python interface, these functions can be called directly from the command line for input and output file paths.
+```
+python inputPath outputPath -key yourKey -encode true
 ```
 
 ## Requirements
 
 The vigenere mapping uses `numpy` arrays to perform index shifting.
+
+## Todos
+
+Update commandline version to receive a custom Viginere table.
