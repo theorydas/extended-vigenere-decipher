@@ -1,6 +1,6 @@
 # extended-vigenere
 
-[License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 This simple python tool offers an easy-to-use way to handle Vigenere encryption and decryption and can also support the traditional Vigenere table as well as any other custom character table that can be created (character or number addition/substraction, or shuffling).
 
