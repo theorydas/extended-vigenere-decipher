@@ -29,14 +29,16 @@ characters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
 Then, encoding and decoding is simply performed by calling the relevant functions.
 ```python
 hidden_message = "this_is_a_test_message!"
-
 encoded_message = extended_vigenere.Encode(hidden_message, "secr@tkey", characters)
+
+- glke!@#dyrxgepswilfeivw
 ```
 
 ```python
 encoded_message = "glke!@#dyrxgepswilfeivw"
-
 decoded_message = extended_vigenere.Decode(Encoded_Message, "secr@tkey", characters)
+
+- this_is_a_test_message!
 ```
 
 ### Command Line
