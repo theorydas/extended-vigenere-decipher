@@ -44,15 +44,12 @@ decoded_message = extended_vigenere.Decode(Encoded_Message, "secr@tkey", charact
 ```
 
 ### Command Line
-Similarly to the python interface, these functions can be called directly from the command line for input and output file paths.
+Similarly to the python interface, these functions can be called directly from the command line for input and output file paths. If tablePath is omitted,
+the default Vigenere table is used instead.
 ```
-python inputPath outputPath -key yourKey -encode true
+python inputPath outputPath -table tablePath -key yourKey -encode true
 ```
 
 ## Requirements
 
 The vigenere mapping uses `numpy` arrays to perform index shifting.
-
-## Todos
-
-Update commandline version to receive a custom Viginere table.
