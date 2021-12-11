@@ -134,6 +134,7 @@ def main(argv):
     parser = argparse.ArgumentParser()
     parser.add_argument("inputFile", help = "Path to the input file used with the cipher.")
     parser.add_argument("outputFile", help = "Path of the output file.")
+    parser.add_argument("-table", "--table", help = "Path of the character table file. Should simply contains the character one after another.")
     parser.add_argument("-key", "--key", help = "The key used for encryption.", type = str)
     parser.add_argument("-encode", "--encode", help = "Wether encoding or decoding is used. Defaults to True/Encoding.", type = str)
     args = parser.parse_args()
@@ -144,10 +145,15 @@ def main(argv):
     message = open(args.inputFile).read()
     key = args.key
     
+    print(args.table)
+    print(args.table is None)
+    if args.table is None:
+        table = defaultCharacters
+    else:
+        table = list(args.table)
+    
     # Find the ciphered version of the message.
-    ciphered = viginereWord(message = message, key = key, character_list = defaultCharacters, encode = shouldEncode)
-    print(len(args.key), shouldEncode)
-    print(ciphered)
+    ciphered = viginereWord(message = message, key = key, character_list = table, encode = shouldEncode)
     
     # Save new message to output path.
     open(args.outputFile, "w").write(ciphered)
