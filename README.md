@@ -47,7 +47,7 @@ decoded_message = extended_vigenere.Decode(Encoded_Message, "secr@tkey", charact
 Similarly to the python interface, these functions can be called directly from the command line for input and output file paths. If tablePath is omitted,
 the default Vigenere table is used instead.
 ```
-python inputPath outputPath -table tablePath -key yourKey -encode true
+$ python inputPath outputPath -table tablePath -key yourKey -encode true
 ```
 
 ## Requirements
