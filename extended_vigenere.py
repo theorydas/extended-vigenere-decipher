@@ -145,8 +145,6 @@ def main(argv):
     message = open(args.inputFile).read()
     key = args.key
     
-    print(args.table)
-    print(args.table is None)
     if args.table is None:
         table = defaultCharacters
     else:
