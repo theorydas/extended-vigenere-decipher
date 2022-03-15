@@ -131,6 +131,8 @@ import sys
 import argparse
 
 def main(argv):
+    """ To be used for command line calls. """
+    
     parser = argparse.ArgumentParser()
     parser.add_argument("inputFile", help = "Path to the input file used with the cipher.")
     parser.add_argument("outputFile", help = "Path of the output file.")
