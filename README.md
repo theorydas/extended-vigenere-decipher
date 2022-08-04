@@ -1,4 +1,4 @@
-# extended-vigenere
+ # extended-vigenere
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -17,7 +17,7 @@ alphabet.
 
 Even though the Vigenere cipher is very simple to understand and use, it is usually never extended to different alphabets or to include different
 symbols and because of this there are no easy to find or use tools online that would account for that. Indeed, when I recently required such an
-extended vigenere table, I wasn't able to find a useful tool online and ended up coding these simple functions.
+extended Vigenere table, I wasn't able to find a useful tool online and ended up coding these simple functions.
 
 ## Usage
 
@@ -47,9 +47,9 @@ decoded_message = extended_vigenere.Decode(Encoded_Message, "secr@tkey", charact
 Similarly to the python interface, these functions can be called directly from the command line for input and output file paths. If tablePath is omitted,
 the default Vigenere table is used instead.
 ```
-$ python inputPath outputPath -table tablePath -key yourKey -encode true
+$ python extended_vigenere.py inputPath outputPath -table tablePath -key yourKey -encode true
 ```
 
 ## Requirements
 
-The vigenere mapping uses `numpy` arrays to perform index shifting.
+The Vigenere mapping uses `numpy` arrays to perform index shifting.
