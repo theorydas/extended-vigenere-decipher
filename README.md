@@ -53,3 +53,7 @@ $ python extended_vigenere.py inputPath outputPath -table tablePath -key yourKey
 ## Requirements
 
 The Vigenere mapping uses `numpy` arrays to perform index shifting.
+
+### TODO
+* Requires support for capitalization.
+* Requires support characters not in the table.
