@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-This simple python tool offers an easy-to-use way to handle Vigenere encryption and decryption and can also support the traditional Vigenere table as well as any other custom character table that can be created (character or number addition/substraction, or shuffling).
+This simple python tool offers an easy-to-use way to handle Vigenere encryption and decryption and can also support the traditional Vigenere table as well as any other custom character table that can be created (character or number addition/subtraction, or shuffling).
 
 ## The Vigenere Puzzle
 
@@ -31,14 +31,14 @@ characters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
 Then, encoding and decoding is simply performed by calling the relevant functions.
 ```python
 hidden_message = "this_is_a_test_message!"
-encoded_message = extended_vigenere.Encode(hidden_message, "secr@tkey", characters)
+encoded_message = extended_vigenere.encode(hidden_message, "secr@tkey", characters)
 
 - glke!@#dyrxgepswilfeivw
 ```
 
 ```python
 encoded_message = "glke!@#dyrxgepswilfeivw"
-decoded_message = extended_vigenere.Decode(Encoded_Message, "secr@tkey", characters)
+decoded_message = extended_vigenere.decode(Encoded_Message, "secr@tkey", characters)
 
 - this_is_a_test_message!
 ```

@@ -3,10 +3,10 @@ import numpy as np
 # ==== Backbone ====
 
 # The default english alphabet character list.
-defaultCharacters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
+default_characters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
                      "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
-def findIndex(input_word: str, character_list: list) -> np.array:
+def find_index(input_word: str, character_list: list) -> np.array:
     """ Returns a numpy array of the index values of the input_word that map to the
     positions of the characters list.
     
@@ -24,7 +24,7 @@ def findIndex(input_word: str, character_list: list) -> np.array:
     """
     return np.array([character_list.index(digit) for digit in input_word])
 
-def findWord(input_index: list, character_list: list) -> str:
+def find_word(input_index: list, character_list: list) -> str:
     """ Returns a list of the characters that index each value of input_index on
     the character_list
     
@@ -44,7 +44,7 @@ def findWord(input_index: list, character_list: list) -> str:
     
     return "".join(char_list)
 
-def viginereWord(message: str, key: str, character_list: list, encode: bool = True) -> str:
+def viginere_word(message: str, key: str, character_list: list, encode: bool = True) -> str:
     """ A backbone functions that handles the default vigenere cipher algorithm for both
     encryptions and decrpytions by index-shifting of the index representations of the messsage
     and key inputs on the chararacter_list.
@@ -55,7 +55,7 @@ def viginereWord(message: str, key: str, character_list: list, encode: bool = Tr
         The message input to the cipher.
     key : {str}
         The key used by the Vigenere cipher.
-    character_list : {list}, default = defaultCharacters.
+    character_list : {list}, default = default_characters.
         A list containing all relevant Vigenere characters in the table. This must
         include all of the characters in `input_word`.
     encode : {bool}, default = True.
@@ -68,22 +68,22 @@ def viginereWord(message: str, key: str, character_list: list, encode: bool = Tr
     encode = 1 if encode else -1
     
     # Turn words into index arrays on the character_list list.
-    message_ = findIndex(message, character_list)
-    key_ = findIndex(key, character_list)
+    message_ = find_index(message, character_list)
+    key_ = find_index(key, character_list)
 
     # Repeat and crop the key to match word.
     key_ = np.tile(key_, int(len(message_)/len(key_)) +1)[:len(message_)]
     
     # Shift the index using the key and remap to character_list.
     resulting_message_index = message_ +key_ *encode
-    resulting_message = findWord(resulting_message_index, character_list)
+    resulting_message = find_word(resulting_message_index, character_list)
     resulting_message = "".join(resulting_message)
     
     return resulting_message
 
 # ==== User Interface functions ====
 
-def Encode(message: str, key: str, character_list: list = defaultCharacters) -> str:
+def encode(message: str, key: str, character_list: list = default_characters) -> str:
     """ Encodes a message using a key by performing a traditional Vigenere cipher
     using a character_list.
     
@@ -92,7 +92,7 @@ def Encode(message: str, key: str, character_list: list = defaultCharacters) -> 
         The message to be encoded.
     key : {str}
         The key used by the Vigenere cipher.
-    character_list : {list}, default = defaultCharacters.
+    character_list : {list}, default = default_characters.
         A list containing all relevant Vigenere characters in the table. This must
         include all of the characters in `input_word`.
     
@@ -100,11 +100,11 @@ def Encode(message: str, key: str, character_list: list = defaultCharacters) -> 
     encoded_message : {str}
         The encoded product of the encryption.
     """
-    encoded_message = viginereWord(message, key, character_list, encode = True)
+    encoded_message = viginere_word(message, key, character_list, encode = True)
     
     return encoded_message
 
-def Decode(message: str, key: str, character_list: list = defaultCharacters) -> str:
+def decode(message: str, key: str, character_list: list = default_characters) -> str:
     """ Decodes a message using a key by performing a traditional Vigenere cipher
     using a character_list.
     
@@ -113,7 +113,7 @@ def Decode(message: str, key: str, character_list: list = defaultCharacters) -> 
         The message to be decoded.
     key : {str}
         The key used by the Vigenere cipher.
-    character_list : {list}, default = defaultCharacters.
+    character_list : {list}, default = default_characters.
         A list containing all relevant Vigenere characters in the table. This must
         include all of the characters in `input_word`.
     
@@ -121,7 +121,7 @@ def Decode(message: str, key: str, character_list: list = defaultCharacters) -> 
     decoded_message : {str}
         The decoed product of the encryption.
     """
-    decoded_message = viginereWord(message, key, character_list, encode = False)
+    decoded_message = viginere_word(message, key, character_list, encode = False)
     
     return decoded_message
 
@@ -148,12 +148,12 @@ def main(argv):
     key = args.key
     
     if args.table is None:
-        table = defaultCharacters
+        table = default_characters
     else:
         table = list(args.table)
     
     # Find the ciphered version of the message.
-    ciphered = viginereWord(message = message, key = key, character_list = table, encode = shouldEncode)
+    ciphered = viginere_word(message = message, key = key, character_list = table, encode = shouldEncode)
     
     # Save new message to output path.
     open(args.outputFile, "w").write(ciphered)
